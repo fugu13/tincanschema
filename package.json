@@ -1,0 +1,17 @@
+{
+  "author": "Russell Duhon <fugu13@gmail.com>",
+  "name": "tincanschema",
+  "description": "Tin Can Schema",
+  "version": "0.0.0",
+  "repository": {
+    "url": ""
+  },
+  "engines": {
+    "node": "~0.6.11"
+  },
+  "dependencies": {
+    "JSV": "~4.0.2"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {}
+}
