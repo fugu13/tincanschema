@@ -140,7 +140,7 @@
                     "type": [
                         {"$ref": "#agent"},
                         {
-                            "type": {"$ref": "#anonymousgroup"},
+                            "type": [{"$ref": "#anonymousgroup"}],
                             "properties": {
                                 "member": {
                                     "type": "array",
@@ -166,7 +166,7 @@
                     "required": true
                 },
                 "id": {
-                    "type": {"$ref": "#uuid"},
+                    "type": [{"$ref": "#uuid"}],
                     "required": true
                 }
             },
@@ -174,20 +174,20 @@
         },
         "substatement": {
             "id": "#substatement",
-            "type": {"$ref": "#statement"},
+            "type": [{"$ref": "#statement"}],
             "properties": {
                 "objectType": {
                     "enum": ["SubStatement"],
                     "required": true
                 },
                 "object": {
-                    "disallow": {
+                    "disallow": [{
                         "properties": {
                             "objectType": {
                                 "enum": ["SubStatement"]
                             }
                         }
-                    }
+                    }]
                 }
             },
             "patternProperties": {
@@ -362,7 +362,7 @@
         },
         "objectagent": {
             "id": "#objectagent",
-            "type": {"$ref": "#agent"},
+            "type": [{"$ref": "#agent"}],
             "properties": {
                 "objectType": {
                     "required": true
@@ -371,7 +371,7 @@
         },
         "agent": {
             "id": "#agent",
-            "type": {"$ref": "#inversefunctional"},
+            "type": [{"$ref": "#inversefunctional"}],
             "properties": {
                 "name": {
                     "type": "string"

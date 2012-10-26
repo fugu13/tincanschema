@@ -6,9 +6,17 @@ var allSchema = JSON.parse(fs.readFileSync('tincan.schema.json', 'utf8'));
 
 var json = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
 
-var env = JSV.createEnvironment();
+var env = JSV.createEnvironment("json-schema-draft-03");
 
 var schema = env.createSchema(allSchema, null, 'tcapi:special');
+
+var schemaschema = env.findSchema("http://json-schema.org/draft-03/schema");
+var schemareport = schemaschema.validate(schema);
+
+if(schemareport.errors.length > 0) {
+    console.log("Problems with schema!");
+    console.log(schemareport.errors);
+}
 
 
 //validate a single statement or list of statements
