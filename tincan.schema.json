@@ -140,7 +140,7 @@
                     "type": [
                         {"$ref": "#agent"},
                         {
-                            "$ref": "#anonymousgroup",
+                            "type": {"$ref": "#anonymousgroup"},
                             "properties": {
                                 "member": {
                                     "type": "array",
@@ -154,7 +154,8 @@
                 "voided": {
                     "type": "boolean"
                 }
-            }
+            },
+            "additionalProperties": false
         },
         "statementref": {
             "id": "#statementref",
@@ -165,7 +166,7 @@
                     "required": true
                 },
                 "id": {
-                    "$ref": "#uuid",
+                    "type": {"$ref": "#uuid"},
                     "required": true
                 }
             },
@@ -173,16 +174,25 @@
         },
         "substatement": {
             "id": "#substatement",
-            "$ref": "#statement",
+            "type": {"$ref": "#statement"},
             "properties": {
                 "objectType": {
                     "enum": ["SubStatement"],
                     "required": true
                 },
-                "patternProperties": {
-                    "(^id$)|(^stored$)|(^authority$)|(^voided$)": {
-                        "type": "null"
+                "object": {
+                    "disallow": {
+                        "properties": {
+                            "objectType": {
+                                "enum": ["SubStatement"]
+                            }
+                        }
                     }
+                }
+            },
+            "patternProperties": {
+                "(^id$)|(^stored$)|(^authority$)|(^voided$)": {
+                    "type": "null"
                 }
             }
         },
