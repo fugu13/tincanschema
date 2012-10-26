@@ -251,7 +251,7 @@
                             "properties": {
                                 "id": {
                                     "type": "string",
-                                    "required": "true"
+                                    "required": true
                                 },
                                 "description": {
                                     "$ref": "#languagemap"
